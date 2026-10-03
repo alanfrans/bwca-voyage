@@ -18,11 +18,19 @@ export function Shell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-40 border-b border-border/80 bg-background/85 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-3 px-4 py-3">
-          <Link href="/" className="font-display text-lg tracking-tight">
-            Canoe Country
-          </Link>
-          <nav className="flex flex-1 flex-wrap items-center gap-1">
+        <div className="mx-auto max-w-6xl px-4 py-3">
+          <div className="flex items-center justify-between gap-3">
+            <Link href="/" className="font-display text-lg tracking-tight">
+              Canoe Country
+            </Link>
+            <Link
+              href="/paddle"
+              className="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground"
+            >
+              Paddle a day
+            </Link>
+          </div>
+          <nav className="mt-2 flex gap-1 overflow-x-auto pb-1">
             {links.map((link) => {
               const active = link.href === "/" ? path === "/" : path.startsWith(link.href);
               return (
@@ -30,7 +38,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "rounded-md px-2 py-1 text-sm text-muted-foreground hover:text-foreground",
+                    "shrink-0 rounded-md px-2 py-1 text-sm whitespace-nowrap text-muted-foreground hover:text-foreground",
                     active && "bg-muted text-foreground",
                   )}
                 >
@@ -39,12 +47,6 @@ export function Shell({ children }: { children: React.ReactNode }) {
               );
             })}
           </nav>
-          <Link
-            href="/paddle"
-            className="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground"
-          >
-            Paddle a day
-          </Link>
         </div>
       </header>
       <main className="mx-auto max-w-6xl px-4 py-10">{children}</main>

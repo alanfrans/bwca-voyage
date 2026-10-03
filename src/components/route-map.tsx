@@ -10,21 +10,21 @@ type Lake = {
 };
 
 const lakes: Lake[] = [
-  { id: "moose", name: "Moose", x: 100, y: 330, rx: 48, ry: 22 },
-  { id: "newfound", name: "Newfound", x: 168, y: 268, rx: 38, ry: 18 },
-  { id: "sucker", name: "Sucker", x: 228, y: 228, rx: 30, ry: 14 },
-  { id: "found", name: "Found", x: 112, y: 196, rx: 20, ry: 12 },
-  { id: "splash", name: "Splash", x: 196, y: 168, rx: 18, ry: 11 },
-  { id: "ensign", name: "Ensign", x: 268, y: 142, rx: 36, ry: 16 },
-  { id: "vera", name: "Vera", x: 360, y: 118, rx: 24, ry: 13 },
-  { id: "birch", name: "Birch", x: 330, y: 246, rx: 42, ry: 20 },
-  { id: "knife", name: "Knife", x: 490, y: 210, rx: 78, ry: 28 },
-  { id: "eddy", name: "Eddy", x: 545, y: 292, rx: 20, ry: 12 },
-  { id: "ottertrack", name: "Ottertrack", x: 650, y: 168, rx: 58, ry: 15 },
-  { id: "swamp", name: "Swamp", x: 745, y: 132, rx: 28, ry: 14 },
-  { id: "border", name: "Border lakes", x: 790, y: 210, rx: 40, ry: 20 },
-  { id: "sag", name: "Saganaga", x: 860, y: 150, rx: 46, ry: 26 },
-  { id: "seagull", name: "Sea Gull", x: 900, y: 268, rx: 36, ry: 20 },
+  { id: "found", name: "Found", x: 78, y: 78, rx: 22, ry: 14 },
+  { id: "splash", name: "Splash", x: 210, y: 78, rx: 20, ry: 13 },
+  { id: "ensign", name: "Ensign", x: 340, y: 78, rx: 36, ry: 16 },
+  { id: "vera", name: "Vera", x: 470, y: 78, rx: 26, ry: 14 },
+  { id: "moose", name: "Moose", x: 90, y: 230, rx: 50, ry: 24 },
+  { id: "newfound", name: "Newfound", x: 210, y: 175, rx: 40, ry: 18 },
+  { id: "sucker", name: "Sucker", x: 330, y: 175, rx: 32, ry: 15 },
+  { id: "birch", name: "Birch", x: 250, y: 310, rx: 46, ry: 22 },
+  { id: "knife", name: "Knife", x: 520, y: 250, rx: 86, ry: 30 },
+  { id: "eddy", name: "Eddy", x: 640, y: 360, rx: 22, ry: 14 },
+  { id: "ottertrack", name: "Ottertrack", x: 700, y: 175, rx: 62, ry: 16 },
+  { id: "swamp", name: "Swamp", x: 860, y: 120, rx: 30, ry: 16 },
+  { id: "border", name: "Border lakes", x: 860, y: 250, rx: 42, ry: 20 },
+  { id: "sag", name: "Saganaga", x: 860, y: 360, rx: 48, ry: 24 },
+  { id: "seagull", name: "Sea Gull", x: 700, y: 430, rx: 40, ry: 20 },
 ];
 
 const paddle: [string, string][] = [
@@ -63,10 +63,10 @@ export function RouteMap({
 }) {
   const active = highlight ? new Set(highlight) : null;
   return (
-    <figure className={cn("overflow-hidden rounded-xl bg-paper text-ink shadow-sm", className)}>
-      <svg viewBox="0 0 980 400" role="img" className="h-auto w-full">
+    <figure className={cn("overflow-x-auto rounded-xl bg-paper text-ink shadow-sm", className)}>
+      <svg viewBox="0 0 980 500" role="img" className="h-auto min-w-[720px] w-full">
         <title>Schematic of the Ely-to-Gunflint lake chain used by the five journeys</title>
-        <rect width="980" height="400" fill="oklch(0.91 0.025 95)" />
+        <rect width="980" height="500" fill="oklch(0.91 0.025 95)" />
         <text x="28" y="36" fill="oklch(0.4 0.03 70)" fontSize="13" fontFamily="Georgia, serif">
           Ely side
         </text>
@@ -125,7 +125,7 @@ export function RouteMap({
                 y={lake.y + lake.ry + 14}
                 textAnchor="middle"
                 fill="oklch(0.28 0.02 70)"
-                fontSize="11"
+                fontSize="14"
                 fontFamily="Georgia, serif"
               >
                 {lake.name}
